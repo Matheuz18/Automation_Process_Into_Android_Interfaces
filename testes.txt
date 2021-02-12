@@ -1,0 +1,202 @@
+-----------------------------------------------------------------------------------
+
+Executado em 01/02/2021, 01:41
+
+objetivo:
+    Executar as 5 funções primárias do usuário
+
+teste:
+    serial = "LMX430UOAUR4LRWWTG"
+    press_home(serial)
+    scroll_screen_down_to_up(serial)
+    scroll_screen_left_to_right(serial)
+    scroll_screen_right_to_left(serial)
+    scroll_screen_up_to_down(serial)
+
+resultado:
+    Todas as funções funcionaram corretamente
+
+Dados do teste:
+    Foi utilizado um device da marca LG, modelo K40S (LM-X430BMW)
+
+
+-----------------------------------------------------------------------------------
+Executado em 01/02/2021, 01:46
+
+objetivo:
+    Abrir o APP Spotify
+
+teste:
+    get_dump_screen(serial)
+    Gval = get_bound_screen("text", "Spotify")
+    while Gval  == {}:
+        get_dump_screen(serial)
+        Gval = get_bound_screen("text", "Spotify")
+
+    tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+resultado:
+    O Spotify foi aberto corretamente
+
+Dados do teste:
+    Foi utilizado um device da marca LG, modelo K40S (LM-X430BMW)
+
+
+
+-----------------------------------------------------------------------------------
+Executado em 01/02/2021, 01:46
+
+objetivo:
+    Clicar no icone de menu
+
+teste:
+    Gval = get_bound_screen("content-desc", "Aplicativos")
+    while Gval == {}:
+        press_home(serial)
+        get_dump_screen(serial)
+        Gval = get_bound_screen("content-desc", "Aplicativos")
+
+    tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+resultado:
+    O click foi executado, e o menu de aplicativos foi aberto corretamente.
+
+Dados do teste:
+    Foi utilizado um device da marca LG, modelo K40S (LM-X430BMW)
+
+
+-----------------------------------------------------------------------------------
+Executado em 01/02/2021, 02:22
+
+objetivo:
+    Executar um conjunto de ações para se obter um screenshot das informações do device dentro das configurações
+
+teste:
+    def main():
+        # serial = input("Serial Number: ")
+        serial = "LMX430UOAUR4LRWWTG"
+
+        press_home(serial)
+
+
+        ###### Abrindo menu de aplicações ######
+        Gval = get_bound_screen("content-desc", "Aplicativos")
+        while Gval == {}:
+            press_home(serial)
+            get_dump_screen(serial)
+            Gval = get_bound_screen("content-desc", "Aplicativos")
+
+        tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+        ###### Abrindo o app de configurações ######
+        get_dump_screen(serial)
+        Gval = get_bound_screen("text", "Ajustes")
+        while Gval  == {}:
+            scroll_screen_right_to_left(serial)
+            get_dump_screen(serial)
+            Gval = get_bound_screen("text", "Ajustes")
+
+        tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+        ###### Abrindo a opção de Sistema ######
+        Gval = get_bound_screen("text", "Sistema")
+        while Gval == {}:
+            scroll_screen_down_to_up(serial)
+            get_dump_screen(serial)
+            Gval = get_bound_screen("text", "Sistema")
+
+        tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+        ###### Abrindo a opção de informações do device ######
+        Gval = get_bound_screen("text", "Sobre o telefone")
+        while Gval == {}:
+            scroll_screen_down_to_up(serial)
+            get_dump_screen(serial)
+            Gval = get_bound_screen("text", "Sobre o telefone")
+
+        tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+        screenCap(serial)
+
+
+resultado:
+    Todos os passos funcionaram da maneira correta, executando os caminhos alternativos quando não encontrava o app
+
+Dados do teste:
+    Foi utilizado um device da marca LG, modelo K40S (LM-X430BMW)
+
+-----------------------------------------------------------------------------------
+
+Executado em 01/02/2021
+
+objetivo:
+    Ver o comportamento do código em telas sem hierarquia de UI
+
+teste:
+    Testar em telas que não tem hierarquia de UI (Games)
+
+resultado:
+    O Modelo criado não auxilia na localização de elementos de uma inteface dentro de aplicações que não tem hierarquia
+    de UI
+
+Dados do teste:
+    Foi utilizado um device da marca LG, modelo K40S (LM-X430BMW)
+
+-----------------------------------------------------------------------------------
+Executado em 03/02/2021
+objetivo:
+    Validar rota criada para smartphone LG-K40(Menu->Ajustes->Sistema->Sobre o Telefone
+
+teste:
+    get_dump_screen(serial)
+    press_home(serial)
+
+
+    ###### Abrindo menu de aplicações ######
+    Gval = loop_for_find("content-desc", "Aplicativos", serial, "HM")
+    tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+    ###### Abrindo o app de configurações ######
+    Gval = loop_for_find("text", "Ajustes", serial, "SRL")
+    tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+    ###### Abrindo a opção de Sistema ######
+    Gval = loop_for_find("text", "Sistema", serial, "SDU")
+    tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+    ###### Abrindo a opção de informações do device ######
+    Gval = loop_for_find("text", "Sobre o telefone", serial, "SDU")
+    tap(serial, Gval["v3"]["x"], Gval["v3"]["y"])
+
+    screenCap(serial)
+
+resultado:
+    A rota foi executada com sucesso, e o print foi tirado ao final da execução
+
+Dados do teste:
+    Foi utilizado um device da marca LG, modelo K40S (LM-X430BMW)
+
+
+-----------------------------------------------------------------------------------
+
+Executado em
+objetivo:
+teste:
+resultado:
+Dados do teste:
+
+-----------------------------------------------------------------------------------
+
+Executado em
+objetivo:
+teste:
+resultado:
+Dados do teste:
+
+-----------------------------------------------------------------------------------
+
+Executado em
+objetivo:
+teste:
+resultado:
+Dados do teste:
