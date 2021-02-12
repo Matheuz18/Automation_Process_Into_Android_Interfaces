@@ -177,26 +177,3 @@ Dados do teste:
     Foi utilizado um device da marca LG, modelo K40S (LM-X430BMW)
 
 
------------------------------------------------------------------------------------
-
-Executado em
-objetivo:
-teste:
-resultado:
-Dados do teste:
-
------------------------------------------------------------------------------------
-
-Executado em
-objetivo:
-teste:
-resultado:
-Dados do teste:
-
------------------------------------------------------------------------------------
-
-Executado em
-objetivo:
-teste:
-resultado:
-Dados do teste:
